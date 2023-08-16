@@ -52,7 +52,7 @@ class _HomescreenState extends State<Homescreen> {
           onPageFinished: (String url) {},
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) {
+            if (request.url.startsWith('https://app.miniextensions.com/portal-form/tBtUpghGOkCGvEU9uhBq')) {
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;
@@ -60,7 +60,7 @@ class _HomescreenState extends State<Homescreen> {
         ),
       )
       ..loadRequest(Uri.parse(
-          'https://developers.google.com/learn/pathways/intro-to-flutter'));
+          'https://app.miniextensions.com/user-portal-grid/J33tuCU22GPu7ymtN2M0'));
   }
 
   @override
@@ -87,11 +87,11 @@ class _HomescreenState extends State<Homescreen> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Add Task',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            label: 'Business',
+            label: 'Task List',
           ),
         ],
         currentIndex: _selectedIndex,
