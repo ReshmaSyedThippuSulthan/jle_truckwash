@@ -40,7 +40,7 @@ class _HomescreenState extends State<Homescreen> {
         ),
       )
       ..loadRequest(Uri.parse(
-          'https://app.miniextensions.com/user-portal-grid/J33tuCU22GPu7ymtN2M0'));
+          'https://app.miniextensions.com/portal-form/tBtUpghGOkCGvEU9uhBq'));
 
     controller2 = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -55,7 +55,7 @@ class _HomescreenState extends State<Homescreen> {
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
             if (request.url.startsWith(
-                'https://app.miniextensions.com/portal-form/tBtUpghGOkCGvEU9uhBq')) {
+                'https://app.miniextensions.com/user-portal-grid/J33tuCU22GPu7ymtN2M0')) {
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;
@@ -71,28 +71,26 @@ class _HomescreenState extends State<Homescreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.purple,
-        title: const Text(
-          "Add Task",
-          style: TextStyle(color: Colors.black, fontSize: 20),
-        ),
+        backgroundColor: Colors.red,
+        title: Text(_selectedIndex == 0 ? "Add Task" : "Task List"),
       ),
       body: _selectedIndex == 0
           ? WebViewWidget(controller: controller1)
           : WebViewWidget(controller: controller2),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.red,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Add Task',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.list),
             label: 'Task List',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.black,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
