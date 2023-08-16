@@ -24,8 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const Image(
-                  image: NetworkImage(
-                      "https://freepngimg.com/thumb/wordpress_logo/3-2-wordpress-logo-png-pic.png"),
+                  image: AssetImage("assets/image/SplashScreen.png"),
                 ),
                 const SizedBox(
                   height: 10,

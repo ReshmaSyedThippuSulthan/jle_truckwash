@@ -31,14 +31,16 @@ class _HomescreenState extends State<Homescreen> {
           onPageFinished: (String url) {},
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) {
+            if (request.url.startsWith(
+                'https://app.miniextensions.com/portal-form/tBtUpghGOkCGvEU9uhBq')) {
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://flutter.dev'));
+      ..loadRequest(Uri.parse(
+          'https://app.miniextensions.com/user-portal-grid/J33tuCU22GPu7ymtN2M0'));
 
     controller2 = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -52,7 +54,8 @@ class _HomescreenState extends State<Homescreen> {
           onPageFinished: (String url) {},
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://app.miniextensions.com/portal-form/tBtUpghGOkCGvEU9uhBq')) {
+            if (request.url.startsWith(
+                'https://app.miniextensions.com/portal-form/tBtUpghGOkCGvEU9uhBq')) {
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;
@@ -69,16 +72,10 @@ class _HomescreenState extends State<Homescreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.purple,
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginScreen()));
-              },
-              icon: const Icon(Icons.logout_sharp))
-        ],
+        title: const Text(
+          "Add Task",
+          style: TextStyle(color: Colors.black, fontSize: 20),
+        ),
       ),
       body: _selectedIndex == 0
           ? WebViewWidget(controller: controller1)

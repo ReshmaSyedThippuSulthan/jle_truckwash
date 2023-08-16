@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uitask/loginscreen.dart';
+import 'package:uitask/homescreen.dart';
+//import 'package:uitask/loginscreen.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -10,11 +11,11 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen> {
   @override
-  void initState() {
+  void initState(){
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const Homescreen()));
       // code to be executed after 2 seconds
     });
   }
@@ -24,8 +25,7 @@ class _SplashscreenState extends State<Splashscreen> {
     return const Scaffold(
       body: Center(
         child: Image(
-            image: NetworkImage(
-                "https://freepngimg.com/thumb/wordpress_logo/3-2-wordpress-logo-png-pic.png")),
+            image: AssetImage("assets/image/SplashScreen.png")),
       ),
     );
   }
